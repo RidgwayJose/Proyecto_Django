@@ -12,3 +12,7 @@ class Product(models.Model):
   image =models.ImageField(upload_to='portfolio/images/')
   price = models.FloatField()
   stock = models.IntegerField()
+  
+  def __str__(self):
+      return self.description
+  
