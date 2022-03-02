@@ -1,3 +1,4 @@
+from itertools import product
 from django.db import models
 from django.db.models.fields import CharField
 from django.db.models.fields.files import ImageField
@@ -15,4 +16,4 @@ class Product(models.Model):
   
   def __str__(self):
       return self.description
-  
+    

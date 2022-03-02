@@ -1,5 +1,5 @@
 from tempfile import template
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Product
 from django.views.generic import ListView
 
@@ -19,4 +19,8 @@ class HomeListView(ListView):
       context['titulo'] = 'CRUD'
       return context
   
-  
+def eliminar_producto(request,id):
+    product= Product.objects.get(id=id)
+    product.delete()
+    
+    return redirect('/')
