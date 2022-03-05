@@ -1,0 +1,10 @@
+{% extends 'plantilla_padre.html' %}
+{% block title %} Registrar Producto {% endblock title %}
+{% block encabezado %} Formulario de Registro {% endblock encabezado %}
+{% block content %}
+<form method="POST"  enctype="multipart/form-data"> 
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Guardar</button>
+  <a class="btn btn-primary" href="../" role="button">Cancelar</a>
+{% endblock content %}

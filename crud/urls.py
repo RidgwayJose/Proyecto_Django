@@ -1,11 +1,15 @@
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from crud.views import HomeListView, eliminar_producto
+from crud.views import HomeListView , ProductUpdateView, ProductCreateView, ProductDeleteView #,edit_product 
 
 urlpatterns = [
     path('', HomeListView.as_view(), name='classHome'),
-    path('eliminacionProducto/<int:id>', eliminar_producto)
+    path('crear', ProductCreateView.as_view(), name = 'createProduct'),
+    path('editar/<int:pk>', ProductUpdateView.as_view(), name = 'editProduct'),
+    path('eliminar/<int:pk>', ProductDeleteView.as_view(), name = 'deleteProduct'),
+    #path('editar/<int:id>', edit_product),
+    #path('eliminacionProducto/<int:id>', ModelDeleteView.as_view(), name='classDelete')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
