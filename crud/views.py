@@ -26,13 +26,13 @@ class ProductUpdateView(UpdateView):
     model = Product
     template_name = "crear.html"
     form_class = ProductForm
-    success_url = reverse_lazy('classHome')
+    success_url = reverse_lazy('listProduct')
 
 class ProductCreateView(CreateView):
     model = Product
     template_name = "crear.html"
     form_class = ProductForm
-    success_url = reverse_lazy('classHome')
+    success_url = reverse_lazy('listProduct')
 
 
 class ProductDeleteView(DeleteView):
