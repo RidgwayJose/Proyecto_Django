@@ -1,4 +1,3 @@
-from zipapp import create_archive
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from .models import Product
@@ -15,13 +14,13 @@ class ProductListView(ListView):
   model = Product
   template_name = 'home.html'
   context_object_name = 'Productos'
-  #queryset = Product.objects.filter(category = 'Lacteos')
-
+  queryset = Product.objects.filter(category = 'Lacteos')
+'''
   def get_context_data(self, **kwargs):
       context = super().get_context_data(**kwargs)
       context['titulo'] = 'Poncho'
       return context
-
+'''
 class ProductUpdateView(UpdateView):
     model = Product
     template_name = "crear.html"
@@ -37,9 +36,14 @@ class ProductCreateView(CreateView):
 
 class ProductDeleteView(DeleteView):
     model = Product
-    template_name = "home.html"
+    template_name = "product_confirm_delete.html"
     form_class = ProductForm
-
+    
+    def post(self, request, pk):
+      product = Product.objects.get(id=pk)
+      product.estado = False
+      product.save()
+      return redirect('listProduct')
 
 '''
 def edit_product(request, id):
