@@ -12,7 +12,7 @@ class ProductAdmin(ImportExportModelAdmin ,admin.ModelAdmin):
   search_fields = ['id', 'name']
   list_display = ['f_id', 'name', 'brand', 'create']
   ordering = ['id']
-  list_filter= ['name', 'brand','category']
+  list_filter= ['name', 'brand','category', 'status']
   resources_class = ProductoResource  
 
 # Register your models here.

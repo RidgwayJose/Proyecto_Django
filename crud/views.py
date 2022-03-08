@@ -11,7 +11,7 @@ from .forms import ProductForm
  * return render(request, 'home.html', {'producto': products})
 _summary_
 """
-class HomeListView(ListView):
+class ProductListView(ListView):
   model = Product
   template_name = 'home.html'
   context_object_name = 'Productos'
