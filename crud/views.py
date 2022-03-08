@@ -14,7 +14,9 @@ class ProductListView(ListView):
   model = Product
   template_name = 'home.html'
   context_object_name = 'Productos'
-  queryset = Product.objects.filter(category = 'Lacteos')
+  queryset = Product.objects.filter(status = True)
+  ordering = 'id'
+  
 '''
   def get_context_data(self, **kwargs):
       context = super().get_context_data(**kwargs)
@@ -37,11 +39,10 @@ class ProductCreateView(CreateView):
 class ProductDeleteView(DeleteView):
     model = Product
     template_name = "product_confirm_delete.html"
-    form_class = ProductForm
     
-    def post(self, request, pk):
+    def post(self, request, pk, *arg, **kwargs):
       product = Product.objects.get(id=pk)
-      product.estado = False
+      product.status = False
       product.save()
       return redirect('listProduct')
 
