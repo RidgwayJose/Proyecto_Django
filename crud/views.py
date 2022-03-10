@@ -14,6 +14,7 @@ class ProductListView(ListView):
   model = Product
   template_name = 'home.html'
   context_object_name = 'Productos'
+  form_class = ProductForm
   queryset = Product.objects.filter(status = True)
   ordering = 'id'
   
@@ -25,7 +26,7 @@ class ProductListView(ListView):
 '''
 class ProductUpdateView(UpdateView):
     model = Product
-    template_name = "crear.html"
+    template_name = "ventanamodal.html"
     form_class = ProductForm
     success_url = reverse_lazy('listProduct')
 
