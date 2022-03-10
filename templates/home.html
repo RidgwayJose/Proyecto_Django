@@ -1,9 +1,11 @@
 {% extends 'plantilla_padre.html' %}
 {% block title %} Lista de Productos{% endblock title %}
 {% block encabezado %}
+
+<link href="js/ventana emergente.js">
 <div class="card-body d-flex">
-LISTA DE PRODUCTOS  
-<a class="btn btn-primary ml-auto" role="boton" type ="submit" href="crear">Agregar</a>
+LISTA DE PRODUCTOS
+<a onclick="abrir_modal_edicion('{% url 'createProduct' %}')" class="btn btn-primary ml-auto" role="boton" type ="submit">Agregar</a>
 </div>
 {% endblock encabezado %}
 {% block content %}
@@ -31,8 +33,8 @@ LISTA DE PRODUCTOS
           <td>{{p.stock}}</td>
           <td><img src="{{p.image.url}}" alt="" style="width: 100px;"></td>
           <td>
-            <a class="btn btn-primary" href="editar/{{p.id}}" role="button"><img src="https://cdn-icons-png.flaticon.com/512/45/45406.png" width="30px"></a>
-              <a class="btn btn-danger" role="boton" href="eliminar/{{p.id}}"><img src="https://cdn-icons-png.flaticon.com/512/88/88666.png" width="30px"></a>
+            <a onclick="abrir_modal_edicion('{% url 'editProduct' p.id %}')" class="btn btn-primary" role="button"><img src="https://cdn-icons-png.flaticon.com/512/45/45406.png" width="30px"></a>
+            <a onclick="abrir_modal_edicion('{% url 'deleteProduct' p.id %}')" class="btn btn-danger" role="boton" ><img src="https://cdn-icons-png.flaticon.com/512/88/88666.png" width="30px"></a>
           </td>
         </tr>
         {% endfor %}
@@ -40,4 +42,23 @@ LISTA DE PRODUCTOS
     </tr>
   </table>
 </div>
+
+
+
+<div class="modal fade" id="edicion" role="dialog">
+
+
+</div>
+
+
 {% endblock content %}
+
+{% block extrajs %}
+<script type="text/javascript">
+  function abrir_modal_edicion(url){
+    $('#edicion').load(url, function(){
+      $(this).modal('show');
+    });
+  }
+</script>
+{% endblock extrajs %}
