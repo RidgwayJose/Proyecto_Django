@@ -10,8 +10,8 @@
           {% csrf_token %}
           {{ form.as_p }}
       <div class="modal-footer">
-          <button class="btn btn-danger" type="button" data-dismiss="modal">cancelar</button>
-          <button class=" btn btn-primary" type="submit">Confirmar</button>
+            <a class="btn btn-primary" href="{% url 'listProduct' %}" role="button" >Cancelar</a>
+            <button class=" btn btn-primary" type="submit">Confirmar</button>
       </div>
   </div>
 </div>

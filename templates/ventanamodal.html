@@ -1,16 +1,17 @@
 <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 class="modal-title" >A POR FIN SALEEEEEEEEE</h2>
-            <button class="close" type="button" data-dismiss = "modal" aria-label="Close">
-                <span aria-hidden="true"></span>
-            </button>
+            <h2 class="modal-title" style="margin-left: 260px">Editar producto</h2>
         </div>
         <form method="POST"  enctype="multipart/form-data" action="{% url 'editProduct' object.id %}">
-            {% csrf_token %}
-            {{ form.as_p }}
+            <div>
+                {% csrf_token %}
+            </div>
+            <div >
+                {{form.as_p}}
+            </div>
         <div class="modal-footer">
-            <button class="btn btn-danger" type="button" data-dismiss="modal">cancelar</button>
+            <a class="btn btn-primary" href="{% url 'listProduct' %}" role="button" >Cancelar</a>
             <button class=" btn btn-primary" type="submit">Confirmar</button>
         </div>
     </div>

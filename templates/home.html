@@ -1,18 +1,19 @@
 {% extends 'plantilla_padre.html' %}
 {% block title %} Lista de Productos{% endblock title %}
 {% block encabezado %}
-
-<link href="js/ventana emergente.js">
-<div class="card-body d-flex">
-LISTA DE PRODUCTOS
-<a onclick="abrir_modal_edicion('{% url 'createProduct' %}')" class="btn btn-primary ml-auto" role="boton" type ="submit">Agregar</a>
+<link href="../crud/static/css/flex.css">
+<header style="width: 98%; margin: 1%; border: 1px solid black;background: rgba(255, 255, 255, 0.664); border-radius: 10px; font-family: 'Courier New', Courier, monospace;">
+  <div class="card-body d-flex">
+  <h1 style=" color: rgb(0, 0, 0);margin-top: 10px;">LISTA DE PRODUCTOS</h1>
+  <a onclick="abrir_modal_edicion('{% url 'createProduct' %}')" class="btn btn-primary" role="button" type ="submit" style="font-size: 20px; color: rgba(247, 47, 47, 0.568); margin: auto;margin-left: 20px; font-family: italic;; border-radius: 5000px;border: 1px solid rgb(247, 47, 47); background-color: white;">Agregar</a>
 </div>
+</header>
 {% endblock encabezado %}
 {% block content %}
 <div>
-  <table class="table table-striped">
-    <tr style="text-align: center;">
-      <th>Codigo</th>
+  <table class="table table-striped" style="width: 98%; margin-left: 1%; border: 1px solid black; margin-top: 50px;">
+    <tr style="text-align: center; background: rgb(255, 255, 255);">
+      <th style="">Codigo</th>
       <th>Producto</th>
       <th>Marca</th>
       <th>Categoria</th>
@@ -24,7 +25,7 @@ LISTA DE PRODUCTOS
     <tr>
       <tb>
         {% for p in Productos %}
-        <tr style="text-align: center;">
+        <tr style="text-align: center; background: rgb(255, 255, 255);">
           <td>{{p.f_id}}</td>
           <td>{{p.name}}</td>
           <td>{{p.brand}}</td>
@@ -43,14 +44,14 @@ LISTA DE PRODUCTOS
   </table>
 </div>
 
-
+<form action="/your-name/" method="post">
+  <label for="your_name">Your name: </label>
+  <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+  <input type="submit" value="OK">
+</form>
 
 <div class="modal fade" id="edicion" role="dialog">
-
-
 </div>
-
-
 {% endblock content %}
 
 {% block extrajs %}
