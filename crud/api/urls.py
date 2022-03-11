@@ -1,7 +1,7 @@
 from django.urls import path
-from crud.api.api import product_api_view #, ProductAPIView
+from crud.api.views.general_views import ProductListAPiView
 
 urlpatterns = [
-    path('producto/', product_api_view, name = 'producto_api')
+    path('prod/', ProductListAPiView.as_view(), name = 'productAPI_list_view')
     #path('producto/', ProductAPIView.as_view(), name = 'producto_api')
 ]
