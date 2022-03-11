@@ -3,3 +3,4 @@ Pillow==9.0.1
 django-import-export
 psycopg2
 djangorestframework
+django-cors-headers
