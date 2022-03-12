@@ -1,7 +1,7 @@
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from crud.views import ProductListView , ProductUpdateView, ProductCreateView, ProductDeleteView #,edit_product 
+from apps.crud.views import ProductListView , ProductUpdateView, ProductCreateView, ProductDeleteView #,edit_product 
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='listProduct'),

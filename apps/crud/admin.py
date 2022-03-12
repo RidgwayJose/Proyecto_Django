@@ -1,5 +1,5 @@
 from django.contrib import admin
-from crud.models import Product
+from apps.crud.models import Product
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
