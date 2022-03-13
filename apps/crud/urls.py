@@ -4,7 +4,7 @@ from django.conf import settings
 from apps.crud.views import ProductListView , ProductUpdateView, ProductCreateView, ProductDeleteView #,edit_product 
 
 urlpatterns = [
-    path('', ProductListView.as_view(), name='listProduct'),
+    path('listar/', ProductListView.as_view(), name='listProduct'),
     path('crear', ProductCreateView.as_view(), name = 'createProduct'),
     path('editar/<int:pk>', ProductUpdateView.as_view(), name = 'editProduct'),
     path('eliminar/<int:pk>', ProductDeleteView.as_view(), name = 'deleteProduct'),

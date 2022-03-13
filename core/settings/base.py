@@ -37,11 +37,11 @@ BASE_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
 ]
 
 LOCAL_APPS = [
     'apps.crud',
+    'apps.usuarios',
 ]
 
 THIRD_APPS = [
