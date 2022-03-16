@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic.edit import FormView
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .forms import FormularioLogin
 # Create your views here.
 
@@ -25,5 +25,9 @@ class Login(FormView):
     def form_valid(self, form):
         login(self.request,form.get_user())
         return super(Login,self).form_valid(form)
+
+def logoutUsuario(request):
+    logout(request)
+    return HttpResponseRedirect('/accounts/login/')
     
 
