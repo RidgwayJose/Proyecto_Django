@@ -1,31 +1,31 @@
 <div class="modal-dialog modal-lg" role="document">
-  <div class="modal-content" style="width: 50%; margin-left: 28%; margin-top:9.5%; border-radius: 5%;">
+  <div class="modal-content" style="width: 50%; margin-left: 28%; margin-top:12%; border-radius: 5%;">
       <div class="modal-header">
-          <h2 class="modal-title" style="margin-left: 20%;">Agregar Producto</h2>
+          <h2 class="modal-title" style="margin-left: 15%;">Agregar Producto</h2>
       </div>
       <form method="POST"  enctype="multipart/form-data" action="{% url 'createProduct' %}">
         <div>
             {% csrf_token %}
         </div>
-        <div style="margin-left: 5%; width: 90%;" >
+        <div>
             <div>
-                <p style="font-style: Helvetica, Arial, sans-serif; font-weight: bold;">Nombre del producto:</p>
+                <p>Nombre del producto:</p>
                 {{form.name}}
             </div>    
             <div>
-                <p style="font-style: Helvetica, Arial, sans-serif; font-weight: bold;">Categoria del producto: </p>
+                <p>Categoria del producto: </p>
                 {{form.category}}</div>
             <div>
-                <p style="font-style: Helvetica, Arial, sans-serif; font-weight: bold;">Precio del producto: </p>
+                <p>Precio del producto: </p>
                 {{form.price}}</div>
             <div>
-                <p style="font-style: Helvetica, Arial, sans-serif; font-weight: bold;">Stock del producto: </p>
+                <p>Stock del producto: </p>
                 {{form.stock}}</div>
             <div>
-                <p style="font-style: Helvetica, Arial, sans-serif; font-weight: bold;">Marca del producto:</p>
+                <p>Marca del producto:</p>
                 {{form.brand}}</div>
             <div >
-                <p style="font-style: Helvetica, Arial, sans-serif; font-weight: bold;">Imagen del producto:</p>
+                <p>Imagen del producto:</p>
                 {{form.image}}</div>
         </div>
       <div class="modal-footer">
