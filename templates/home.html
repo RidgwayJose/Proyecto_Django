@@ -2,6 +2,7 @@
 {% block title %} Lista de Productos{% endblock title %}
 {% block encabezado %}
 <link href="../crud/static/css/flex.css">
+<<<<<<< HEAD
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
 <header>
   <nav class="navbar navbar-dark bg-primary">
@@ -14,6 +15,19 @@
         <a class="btn btn-success" style="margin-left: 1%; height: 2%;" href="{% url 'logout' %}">Salir</a>
     </div>
   </nav>
+=======
+<header style="width: 98%; margin: 1%; border: 1px solid black;background: rgba(255, 255, 255, 0.664); border-radius: 10px; font-family: 'Courier New', Courier, monospace;">
+  <div class="card-body d-flex">
+  <h1 style=" color: rgb(0, 0, 0);margin-top: 10px;">LISTA DE PRODUCTOS</h1>
+  <a onclick="abrir_modal_edicion('{% url 'createProduct' %}')" class="btn btn-primary" role="button" type ="submit" style="font-size: 20px; color: rgba(247, 47, 47, 0.568); margin: auto;margin-left: 20px; font-family: italic;; border-radius: 5000px;border: 1px solid rgb(247, 47, 47); background-color: white;">Agregar</a>
+</div>
+<!--Muestra el crud de usuarios pero solo para los que tienen el rango de administrador hecho en los modelos -->
+<label>BIENVENIDO {{user.username}}</label>
+{% if request.user.is_staff %}
+<a style="font-size: 20px;" href="{% url 'listar_usuarios' %}">crud de usuarios</a>
+{% endif %}
+</div>
+>>>>>>> origin/victor
 </header>
 {% endblock encabezado %}
 {% block content %}

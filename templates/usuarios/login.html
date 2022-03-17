@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
+  </head>
+  <body>
+    <img src="{% static '/imagenes/almacen.jpg' %}">
+    <div class="login-box">
+      <img src="{% static '/imagenes/jo.png' %}" class="avatar" alt="Avatar Image">
+      <h1>Inicio de Sesion</h1>
+      <form method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        {{ form.username }}
+        <label for="password">Password</label>
+        {{form.password}}
+        <input type="submit"></input>
+      </form>
+    </div>
+  </body>
+</html>
