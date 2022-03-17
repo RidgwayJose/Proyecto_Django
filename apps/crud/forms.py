@@ -4,7 +4,8 @@ from .models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'#['id' ,'description', 'category', 'stock', 'price']
+        #fields = '__all__'#['id' ,'description', 'category', 'stock', 'price']
+        exclude = ['status']
         labels = {
           'id' :'Codigo del Producto',
           'name' : 'Nombre del Producto',
