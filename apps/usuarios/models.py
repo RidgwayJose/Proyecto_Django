@@ -67,28 +67,3 @@ class Usuario(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.usuario_administrador
-
-
-    """def clean_password2(self):
-      
-        password1 = self.cleaned_data.get('password1')
-        password2 = self.cleaned_data.get('password2')
-        if password1 != password2:
-            raise forms.ValidationError('contraseñas no coinciden!')
-        return password2
-
-    def save(self,commit = True):
-        user = super().save(commit= False)
-        user.set_password(self.cleaned_data['password1'])
-        if commit:
-            user.save()
-        return user"""
-  
-    """VALIDACION DE LA CONTRASEÑA
-
-        Metodo que valida que ambas contraseñas ingresadas sean igual, esto antes de ser encriptadas
-        y guardadas en la base de datos y retorna la contraseña valida
-
-        Excepciones:
-        - ValidationError -- cuando las contraseñas no son iguales muestra el mensaje del error
-        """
