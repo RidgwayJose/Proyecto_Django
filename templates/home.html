@@ -7,9 +7,11 @@
   <nav class="navbar navbar-dark bg-primary">
     <div class="card-body d-flex">
         <h1 style="color: lavender">Trabajo Grupal</h1>
-        <button type="button" class="btn btn-info position-relative" style="height: 2%; margin-left: 55%;">Perfil</button>
+        {% if request.user.is_staff %}
+        <button type="button" class="btn btn-info position-relative" style="height: 2%; margin-left: 55%;">Bienvenido {{user.username}}</button>
+        {% endif %}
         <button type="button" class="btn btn-info" style="height: 2%; margin-left: 1%;">Notificaciones</button>
-        <button type="button" class="btn btn-success" style="margin-left: 1%; height: 2%;">Ingresar</button>
+        <a class="btn btn-success" style="margin-left: 1%; height: 2%;" href="{% url 'logout' %}">Salir</a>
     </div>
   </nav>
 </header>
@@ -36,9 +38,9 @@
                     <span class="visually-hidden" style="padding-right: 45px;" style="padding-left: 45px;">Codigo</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">0001</a></li>
-                    <li><a href="#" class="dropdown-item">0002</a></li>
-                    <li><a href="#" class="dropdown-item">0003</a></li>
+                  {% for p in Productos %}
+                    <li><a href="#" class="dropdown-item">{{p.brand}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="btn-group" style="margin-left:50px">
@@ -162,7 +164,6 @@
 
 <div class="modal fade" id="edicion" role="dialog">
 </div>
-<a href="{% url 'logout' %}">Salir</a>
 {% endblock content %}
 
 {% block extrajs %}
