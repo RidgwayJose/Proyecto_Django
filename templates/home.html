@@ -1,7 +1,6 @@
 {% extends 'plantilla_padre.html' %}
 {% block title %} Lista de Productos{% endblock title %}
 {% block encabezado %}
-<link href="../crud/static/css/flex.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
 <header>
   <nav class="navbar navbar-dark bg-primary">
@@ -16,10 +15,10 @@
 {% endblock encabezado %}
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-light">
         <div class="card-body d-flex">
             <h2>PRODUCTOS</h2>
-            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <nav class="navbar navbar-light">
                 <div class="container-fluid">
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="padding-right: 45px;">
@@ -29,136 +28,38 @@
             </nav>
             <a onclick="abrir_modal_edicion('{% url 'createProduct' %}')" class="btn btn-primary" role="button" type ="submit" style="margin-left: 50%;height: 2%;">Agregar</a>
         </div>
-        <div>
-            <div class="btn-group" style="margin-left:10px">
-                <button type="button" class="btn btn-light" >Codigo</button>
-                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden" style="padding-right: 45px;" style="padding-left: 45px;">Codigo</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">0001</a></li>
-                    <li><a href="#" class="dropdown-item">0002</a></li>
-                    <li><a href="#" class="dropdown-item">0003</a></li>
-                </ul>
-            </div>
-            <div class="btn-group" style="margin-left:50px">
-                <button type="button" class="btn btn-light">Categoria</button>
-                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden" style="padding-right: 45px;" style="padding-left: 45px;">Categoria</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">Lacteos</a></li>
-                    <li><a href="#" class="dropdown-item">Cereales</a></li>
-                    <li><a href="#" class="dropdown-item">Enlatados</a></li>
-                </ul>
-            </div>
-            <div class="btn-group" style="margin-left: 80px;">
-                <button type="button" class="btn btn-light">Marca</button>
-                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Marca</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">Gloria</a></li>
-                    <li><a href="#" class="dropdown-item">Laive</a></li>
-                    <li><a href="#" class="dropdown-item">Donofrio</a></li>
-                </ul>
-            </div>
-            <div class="btn-group" style="margin-left:25px">
-                <button type="button" class="btn btn-light" style="margin-left: 10px; padding-left: 35px;">Producto</button>
-                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden" style="padding-right: 45px;" style="padding-left: 45px;">Producto</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">Leche</a></li>
-                    <li><a href="#" class="dropdown-item">Yogurt</a></li>
-                    <li><a href="#" class="dropdown-item">Atun</a></li>
-                </ul>
-            </div>
-            <div class="btn-group" style="margin-left:80px">
-                <button type="button" class="btn btn-light" style="margin-left: 10px; padding-left: 35px;">Precio</button>
-                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden" style="padding-right: 45px;" style="padding-left: 45px;">Precio</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">5.50</a></li>
-                    <li><a href="#" class="dropdown-item">8.00</a></li>
-                    <li><a href="#" class="dropdown-item">3.90</a></li>
-                </ul>
-            </div>
-            <div class="btn-group" style="margin-left: 100px;" >
-                <button type="button" class="btn btn-light">Stock</button>
-                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden" style="padding-right: 45px;" style="padding-left: 45px;">Stock</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">10</a></li>
-                    <li><a href="#" class="dropdown-item">7</a></li>
-                    <li><a href="#" class="dropdown-item">9</a></li>
-                </ul>
-            </div>
-            <button type="button" class="btn btn-light" style="margin-left: 70px;">Imagen</button>
-            <button type="button" class="btn btn-light" style="margin-left: 125px;">Opciones</button>
-        </div>
     </nav>
-<table  class="table table-bordered border-dark" style="text-align: center;">
-    <tr>
-      <tb>
+    <div>
+      <table class="table table">
+          <tr>
+              <th><p>Codigo</p></th>
+              <th><p>Categoria</p></th>
+              <th><p>Marca</p></th>
+              <th><p>Producto</p></th>
+              <th><p>Precio</p></th>
+              <th><p>Stock</p></th>
+              <th><p>Imagen</p></th>
+              <th><p>Opciones</p></th>
+          </tr>
         {% for p in Productos %}
-        <tr style="text-align: center;" class="table-active">
-          <td>{{p.f_id}}</td>
-          <td>{{p.name}}</td>
-          <td>{{p.brand}}</td>
-          <td>{{p.category}}</td>
-          <td>{{p.price}}</td>
-          <td>{{p.stock}}</td>
-          <td><img src="{{p.image.url}}" alt="" style="width: 100px;"></td>
-          <td>
-            <a onclick="abrir_modal_edicion('{% url 'editProduct' p.id %}')" class="btn btn-primary" role="button"><img src="https://cdn-icons-png.flaticon.com/512/45/45406.png" width="30px"></a>
-            <a onclick="abrir_modal_edicion('{% url 'deleteProduct' p.id %}')" class="btn btn-danger" role="boton" ><img src="https://cdn-icons-png.flaticon.com/512/88/88666.png" width="30px"></a>
-          </td>
-        </tr>
+          <tr style=" background-color: white;  background: white; border: 1px solid;" class="table-active" >
+            <tb>
+              <td >{{p.f_id}}</td>
+              <td >{{p.name}}</td>
+              <td >{{p.brand}}</td>
+              <td >{{p.category}}</td>
+              <td >{{p.price}}</td>
+              <td >{{p.stock}}</td>
+              <td ><img src="{{p.image.url}}" alt=""></td>
+              <td >
+                <a onclick="abrir_modal_edicion('{% url 'editProduct' p.id %}')" class="btn btn-primary" role="button"><img src="https://cdn-icons-png.flaticon.com/512/45/45406.png" width="30px"></a>
+                <a onclick="abrir_modal_edicion('{% url 'deleteProduct' p.id %}')" class="btn btn-danger" role="boton" ><img src="https://cdn-icons-png.flaticon.com/512/88/88666.png" width="30px"></a>
+              </td>
+            </tb>
+          </tr>
         {% endfor %}
-      </tb>
-    </tr>
-</table>
-
-
-
-
-<!--<div>
-  <table class="table table-striped" style="width: 94%; margin-left: 3%; border: 1px solid black; margin-top: 50px;" >
-    <tr style="text-align: center; background: rgb(255, 255, 255);">
-      <th style="">Codigo</th>
-      <th>Producto</th>
-      <th>Marca</th>
-      <th>Categoria</th>
-      <th>Precio</th>
-      <th>Stock</th>
-      <th>Imagen</th>
-      <th>Opciones</th>
-    </tr>
-    <tr>
-      <tb>
-        {% for p in Productos %}
-        <tr style="text-align: center; background: rgb(255, 255, 255);">
-          <td>{{p.f_id}}</td>
-          <td>{{p.name}}</td>
-          <td>{{p.brand}}</td>
-          <td>{{p.category}}</td>
-          <td>{{p.price}}</td>
-          <td>{{p.stock}}</td>
-          <td><img src="{{p.image.url}}" alt="" style="width: 100px;"></td>
-          <td>
-            <a onclick="abrir_modal_edicion('{% url 'editProduct' p.id %}')" class="btn btn-primary" role="button"><img src="https://cdn-icons-png.flaticon.com/512/45/45406.png" width="30px"></a>
-            <a onclick="abrir_modal_edicion('{% url 'deleteProduct' p.id %}')" class="btn btn-danger" role="boton" ><img src="https://cdn-icons-png.flaticon.com/512/88/88666.png" width="30px"></a>
-          </td>
-        </tr>
-        {% endfor %}
-      </tb>
-    </tr>
-  </table>
-</div> <-->
-
+    </table>
+  </div>
 
 <div class="modal fade" id="edicion" role="dialog">
 </div>
