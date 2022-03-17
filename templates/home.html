@@ -11,7 +11,6 @@
 <label>BIENVENIDO {{user.username}}</label>
 {% if request.user.is_staff %}
 <a style="font-size: 20px;" href="{% url 'listar_usuarios' %}">crud de usuarios</a>
-<a onclick="abrir_modal_edicion('{% url 'registrar_usuario' %}')" class="btn btn-primary" role="button" type ="submit" style="font-size: 20px; color: rgba(247, 47, 47, 0.568); margin: auto;margin-left: 20px; font-family: italic;; border-radius: 5000px;border: 1px solid rgb(247, 47, 47); background-color: white;">Registrar</a>
 {% endif %}
 </div>
 </header>
