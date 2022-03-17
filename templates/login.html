@@ -1,21 +1,22 @@
 {% load static %}
-        <div>
-        <table class="table table-striped" style="width: 98%; margin-left: 1%; border: 1px solid black; margin-top: 50px;">
-            {% csrf_token %}    
-            <input type="text" name="username">
-            <button type="submit">presiona aqui</button>
-
-
-            <tr style="text-align: center; background: rgb(255, 255, 255);">
-            <th style="">Codigo</th>
-            <th>Producto</th>
-            <th>Marca</th>
-            <th>Categoria</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Imagen</th>
-            <th>Opciones</th>
-            </tr>
-            <tr>
-            <tb>
-        </div>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INICIO DE SESION</title>
+</head>
+<body>
+  <form method="POST" class="form-login">
+    <h5>Formulario Login</h5>
+    {% csrf_token %}
+    <label>Nombre de Usuario</label>
+    {{ form.username }}
+    <label>Contraseña</label>
+    {{form.password}}
+    <button type="submit">Iniciar sesion</button>
+  </form>
+</body>
+</html>
