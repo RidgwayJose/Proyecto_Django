@@ -15,7 +15,7 @@ from .forms import FormularioLogin, FormularioUsuario
 # Create your views here.
 
 class Login(FormView):
-    template_name = 'login.html'
+    template_name = 'usuarios/login.html'
     form_class = FormularioLogin
     success_url = reverse_lazy('crud')
 
