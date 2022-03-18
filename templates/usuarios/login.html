@@ -1,23 +1,51 @@
 {% load static %}
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="{% static '/css/login.css' %}">
-  </head>
-  <body>
-    <img src="{% static '/imagenes/almacen.jpg' %}">
-    <div class="login-box">
-      <img src="{% static '/imagenes/jo.png' %}" class="avatar" alt="Avatar Image">
-      <h1>Inicio de Sesion</h1>
-      <form method="post">
-        {% csrf_token %}
-        <label for="username">Username</label>
-        {{ form.username }}
-        <label for="password">Password</label>
-        {{form.password}}
-        <input type="submit"></input>
-      </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Listado de Usuarios</title>
+  <style>
+    body{
+      background: #EB5757;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #000000, #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    .bg{
+      background-position: center center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container w-75 mt-5 rounded shadow">
+    <div class="row align-items-stretch">
+      <div class="col bg d-none d-lg-block bg-black">
+        <img src="{% static '/imagenes/ba.jpg' %}" width="98%" height="100%">
+      </div>
+      <div class="col bg-white p-5 rounded-end">
+        <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+        <!-- LOGIN-->
+        <form method="POST">
+          {% csrf_token %}
+          <div class="mb-4">
+            <label for="email" class="form-label">Nombre de Usuario</label>
+            {{ form.username }}
+          </div>
+          <div class="mb-4">
+            <label for="password" class="form-label">Contraseña</label>
+            {{form.password}}
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 </html>

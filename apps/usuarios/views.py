@@ -1,6 +1,6 @@
 from re import template
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
@@ -36,12 +36,11 @@ def logoutUsuario(request):
     return HttpResponseRedirect('/accounts/login/')
     
 
-#Vistas basadas en clases del modelo de Usuario (requistrar y listar)
+#Vistas basadas en clases del modelo de Usuario (requistrar, listar, eliminar, editar)
 
 class ListadoUsuario(ListView):
     model=Usuario
     template_name = 'usuarios/listar_usuario.html'
-
     def get_queryset(self):
         return self.model.objects.filter(usuario_activo=True)
 
@@ -49,4 +48,20 @@ class RegistrarUsuario(CreateView):
     model =Usuario
     form_class= FormularioUsuario
     template_name = 'usuarios/crear_usuario.html'
+    success_url = reverse_lazy('listar_usuarios')
+
+
+class EliminarUsuario(DeleteView):
+    model = Usuario
+    template_name = "usuarios/eliminar_usuario.html"
+    def post(self, request, pk, *arg, **kwargs):
+      usur = Usuario.objects.get(id=pk)
+      usur.usuario_activo = False
+      usur.save()
+      return redirect('listar_usuarios')
+
+class UpdateUsuario(UpdateView):
+    model = Usuario
+    template_name = "usuarios/editar_usuario.html"
+    form_class = FormularioUsuario
     success_url = reverse_lazy('listar_usuarios')
